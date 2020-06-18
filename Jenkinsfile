@@ -22,7 +22,7 @@ pipeline {
     stages {
         stage('Before All') {
             steps {
-                sh "echo $ref"
+                sh "echo ${env.ref}"
             }
         }
         stage('Build') {
