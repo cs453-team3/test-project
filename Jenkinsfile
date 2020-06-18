@@ -16,7 +16,7 @@ pipeline {
             silentResponse: false,
 
             regexpFilterText: '$ref',
-            regexpFilterExpression: 'refs/heads/' + "master"
+            regexpFilterExpression: 'refs/heads/' + "${env.BRANCH_NAME}"
         )
     }
     stages {
