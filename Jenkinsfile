@@ -31,7 +31,9 @@ pipeline {
             }
         }
         stage('Algorithm') {
-            greet_check name: 'HelloWorld!', useFrench: false
+            steps {
+                greet_check name: 'HelloWorld!', useFrench: false
+            }
         }
         stage('Test') {
             steps {
