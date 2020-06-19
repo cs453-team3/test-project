@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                greet name: 'HelloWorld!', useFrench: False
+                greet name: 'HelloWorld!', useFrench: false
                 sh 'mvn test'
             }
             post {
