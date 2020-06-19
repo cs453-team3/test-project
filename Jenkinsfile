@@ -20,7 +20,7 @@ pipeline {
         )
     }
     stages {
-        stage('Before All') {
+        stage('Checking Trigger') {
             steps {
                 sh "echo ${env.ref}"
             }
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "echo Hello World"
+                greet 'HelloWorld!'
                 sh 'mvn test'
             }
             post {
