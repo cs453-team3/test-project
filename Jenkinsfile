@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                step([$class: 'HelloWorldBuilder', name: 'test-project-bekza'])
+                step([$class: 'io.jenkins.plugins.sample.HelloWorldBuilder', name: 'test-project-bekza'])
                 sh 'mvn test'
             }
             post {
