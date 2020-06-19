@@ -30,9 +30,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Algorithm') {
+            greet_check name: 'HelloWorld!', useFrench: false
+        }
         stage('Test') {
             steps {
-                greet name: 'HelloWorld!', useFrench: false
                 sh 'mvn test'
             }
             post {
