@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Algorithm') {
             steps {
-                step([$class: 'io.jenkins.plugins.sample.HelloWorldBuilder', name: 'HelloWorld!', useFrench: false])
+                step([$class: 'HelloWorldBuilder', name: 'HelloWorld!', useFrench: false])
             }
         }
         stage('Test') {
