@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                greet 'HelloWorld!'
+                step([$class: 'HelloWorldBuilder', name: 'test-project-bekzat'])
                 sh 'mvn test'
             }
             post {
