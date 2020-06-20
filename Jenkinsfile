@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Algorithm') {
             steps {
-                step([$class: 'HelloWorldBuilder', name: 'HelloWorld!', useFrench: false])
+                step([$class: 'PrioraBuilder', mnCommitInterv: 10, mxCommitInterv: 100000])
             }
         }
         stage('Test') {
