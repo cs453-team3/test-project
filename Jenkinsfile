@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Algorithm') {
             steps {
-                step([$class: 'PrioraBuilder', mnCommitInterv: 10, mxCommitInterv: 100000])
+                step([$class: 'PrioraBuilder', mnCommitInterv: 10, mxCommitInterv: 100000, restart: true])
             }
         }
         stage('Test') {
