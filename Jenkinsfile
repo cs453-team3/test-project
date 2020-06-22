@@ -32,7 +32,7 @@ pipeline {
         }
         stage('Algorithm') {
             steps {
-                step([$class: 'PrioraBuilder', mnCommitInterv: 10, mxCommitInterv: 100000, NUMBER_OF_BUILDS_TO_SEARCH: 10])
+                step([$class: 'PrioraBuilder', mnCommitInterv: 1000, mxCommitInterv: 100, prioraMethod: 'Greedy'])
             }
         }
         stage('Test') {
