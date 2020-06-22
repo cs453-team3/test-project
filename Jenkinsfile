@@ -20,24 +20,21 @@ pipeline {
         )
     }
     stages {
-        stage('Checking Trigger') {
-            steps {
-                sh "echo ${env.ref}"
-            }
-        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh 'mvn test-compile'
             }
         }
         stage('Algorithm') {
             steps {
-                step([$class: 'PrioraBuilder', mnCommitInterv: 1000, mxCommitInterv: 100, prioraMethod: 'Greedy', path: ['target', 'priora']])
+                step([$class: 'PrioraBuilder', mnCommitInterv: 1000, mxCommitInterv: 100000])
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                /*sh 'chmod u+x ./exectests'*/
+                sh './priora/exectests'
             }
             post {
                 always {
@@ -45,10 +42,10 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
+        /*stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
-        }
+        }*/
     }
 }
